@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Coach Profile</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <script th:src="@{/js/script.js}" defer></script>
+    <style>
+        /* Footer */
+        footer {
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            width: 100%;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+<!-- Header -->
+<header>
+    <nav>
+        <ul class="menu">
+            <li><a th:href="@{/home}">Home</a></li>
+            <li><a th:href="@{/about}">About</a></li>
+            <li><a th:href="@{/contact}">Contact</a></li>
+            <li><a th:href="@{/sign-in}">Sign In</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Contact Section -->
+<section class="contact">
+    <div class="contact-info">
+        <h1 style="color: black;">Contact Us</h1>
+        <p>If you have any questions or want to book a session, feel free to reach out!</p>
+    </div>
+
+    <!-- Thymeleaf form handling -->
+    <form id="contactForm" th:action="@{/submit-contact}" method="post" th:object="${contactForm}" class="contact-form">
+
+        <!-- CSRF Token for Security -->
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+        <div class="form-group">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" th:field="*{name}" placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" th:field="*{email}" placeholder="Enter your Gmail address"
+                   pattern="[a-zA-Z0-9._%+-]+@gmail\.com"
+                   title="Please enter a valid Gmail address (e.g., username@gmail.com)"
+                   required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Contact Number:</label>
+            <input type="tel" id="phone" th:field="*{phone}" placeholder="Enter your contact number"
+                   pattern="^\d{10}$"
+                   title="Please enter a 10-digit phone number (e.g., 9876543210)"
+                   required>
+        </div>
+
+        <div class="form-group">
+            <label for="contact-method">Preferred Contact Method:</label>
+            <select id="contact-method" th:field="*{preferredContactMethod}" required>
+                <option value="" th:selected="${contactForm.preferredContactMethod == null}">Select an option</option>
+                <option value="email" th:selected="${contactForm.preferredContactMethod == 'email'}">Email</option>
+                <option value="phone" th:selected="${contactForm.preferredContactMethod == 'phone'}">Phone</option>
+                <option value="text" th:selected="${contactForm.preferredContactMethod == 'text'}">Text Message</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" th:field="*{message}" placeholder="Write your message here..." rows="5" required></textarea>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Coach Profile. All rights reserved.</p>
+</footer>
+
+<script th:inline="javascript">
+    /* Simple Contact form submission (for demonstration purposes) */
+    document.getElementById("contactForm").addEventListener("submit", function () {
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let phone = document.getElementById("phone").value;
+        let message = document.getElementById("message").value;
+
+        if (name === "" || email === "" || phone === "" || message === "") {
+            alert("All fields are required!");
+        } else {
+            alert("Thank you for your message, we will get back to you soon!");
+        }
+    });
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coach Profile</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+<!--    <script th:src="@{/js/script.js}" defer></script>-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<!--    <style>-->
+<!--        /* Footer */-->
+<!--        footer {-->
+<!--            padding: 20px;-->
+<!--            background-color: #333;-->
+<!--            color: white;-->
+<!--            width: 100%;-->
+<!--            text-align: center;-->
+<!--            margin-top: 50px;-->
+<!--        }-->
+<!--    </style>-->
+</head>
+
+<body>
+<!-- Header -->
+<header>
+    <nav>
+        <ul class="menu">
+            <li><a  th:href="@{/}">Home</a></li>
+            <li><a  th:href="@{/about}">About</a></li>
+            <li><a  th:href="@{/contact}">Contact</a></li>
+            <li><a  th:href="@{/sign-in}">Sign In</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="image-slider">
+        <img src="/images/home1.jpg" alt="Coach" class="active">
+        <img src="/images/home2.jpg" alt="Coach">
+        <img src="/images/home3.jpg" alt="Coach">
+    </div>
+    <div class="info">
+        <h1>Meet Our Certified Coach</h1>
+        <p>Certified in Coaching, bringing positivity and expertise to help you achieve your goals.</p>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Coach Profile. All rights reserved.</p>
+</footer>
+
+<script>
+    // Image Slider Logic
+    let images = document.querySelectorAll('.image-slider img');
+    let index = 0;
+
+    function flipImages() {
+        images.forEach(img => img.classList.remove('active'));
+        images[index].classList.add('active');
+        index = (index + 1) % images.length;
+    }
+    setInterval(flipImages, 3000);
+</script>
+</body>
+</html>

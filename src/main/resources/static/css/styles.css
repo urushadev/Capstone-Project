@@ -1,0 +1,364 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ab7845;
+    color: white;
+}
+
+/* Header - Sticky Navbar */
+header {
+    position: sticky;
+    top: 0;
+    background-color: #333;
+    padding: 10px 0;
+    text-align: center;
+    z-index: 1000; /* Ensures the navbar stays above other content */
+}
+
+nav .menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+nav .menu li {
+    margin: 0 15px;
+}
+
+nav .menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+}
+
+.image-slider {
+    position: relative;
+    width: 55%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.image-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.image-slider img.active {
+    opacity: 1;
+}
+
+.info {
+    width: 40%;
+    text-align: left;
+    font-size: 1.5em;
+    animation: textFadeIn 3s ease-in-out forwards;
+}
+
+@keyframes textFadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    50% { opacity: 1; }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Contact Section */
+.contact {
+    background-color: #f7f7f7;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.contact-info h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+/* Contact Form */
+.contact-form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    font-size: 1rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form select {
+    background-color: white;
+    appearance: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #ab7845;
+}
+
+.contact-form button {
+    background-color: #ab7845;
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.contact-form button:hover {
+    background-color: #9e672c;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact {
+        padding: 30px 15px;
+    }
+
+    .contact-form {
+        padding: 30px;
+        width: 90%;
+    }
+}
+
+/* Athlete Stats Table */
+.athlete-stats {
+    padding: 50px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.athlete-stats table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.athlete-stats th,
+.athlete-stats td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.athlete-stats th {
+    background-color: #333;
+    color: white;
+}
+
+.athlete-stats td {
+    color: black !important;
+}
+
+/* About Section */
+.about {
+    padding: 50px 20px;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+
+.about h1 {
+    font-size: 32px;
+    color: black;
+}
+
+/* Athlete Grid */
+.athlete-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.athlete-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.athlete-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.athlete-card h3 {
+    padding: 15px;
+    font-size: 1.1rem;
+    background-color: #333;
+    color: white;
+    margin: 0;
+}
+
+.athlete-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Dashboard */
+.video-gallery {
+    text-align: center;
+    padding: 20px;
+    background-color: #222;
+    color: white;
+}
+
+.videos,
+.gifs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+video {
+    width: 300px;
+    border-radius: 8px;
+}
+
+.gifs img {
+    width: 200px;
+    border-radius: 8px;
+}
+
+/* Styles specific to dashboard.html */
+.dashboard-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.dashboard-media-section {
+    margin-top: 20px;
+}
+
+.dashboard-video-container h2,
+.dashboard-gif-container h2 {
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.dashboard-video-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.dashboard-video-wrapper video {
+    width: 45%;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-gif-container img {
+    width: 60%;
+    margin-top: 15px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Sign-In Section */
+.sign-in {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.sign-in .info {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 40px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    color: white;
+    text-align: center;
+}
+
+.sign-in input,
+.sign-in button {
+    padding: 10px;
+    font-size: 1.1em;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    background-color: transparent;
+    color: white;
+    margin: 10px 0;
+}
+
+.sign-in button {
+    background-color: #ab7845;
+    cursor: pointer;
+}
+
+.sign-in button:hover {
+    background-color: #9e672c;
+}
+
+footer {
+    padding: 20px !important;
+    background-color: #333 !important;
+    color: white !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin-top: 50px !important;
+}

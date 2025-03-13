@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Coach Profile</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <script th:src="@{/js/script.js}" defer></script>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <nav>
+        <ul class="menu">
+            <li><a href="/home" th:href="@{/home}">Home</a></li>
+            <li><a href="/about" th:href="@{/about}">About</a></li>
+            <li><a href="/contact" th:href="@{/contact}">Contact</a></li>
+            <li><a href="/sign-in" th:href="@{/sign-in}">Sign In</a></li>
+        </ul>
+    </nav>
+</header>
+
+<style>
+    /* Footer */
+    footer {
+        padding: 20px;
+        background-color: #333;
+        color: white;
+        width: 100%;
+        text-align: center;
+        margin-top: 50px;
+    }
+</style>
+
+<!-- About Section -->
+<section class="about">
+    <h1 style="color: black; font-size: 32px;">
+        <b></b><u>Top Athletes Trained by Us</u></b>
+    </h1>
+    <br>
+
+    <p style="color: black; font-size: 18px;">
+        Our coach is a certified expert in various coaching methodologies. With years of experience, they have
+        helped numerous clients achieve their personal and professional goals. They specialize in motivational
+        coaching, life coaching, and leadership coaching.
+    </p>
+
+    <p style="color: black; font-size: 18px;">
+        Our mission is to empower you with the knowledge, tools, and mindset needed to take your life to the
+        next level. Whether you are looking to improve your career, build better habits, or increase your confidence,
+        our coach will guide you every step of the way.
+    </p>
+
+    <!-- Athlete Grid -->
+    <div class="athlete-grid">
+        <div class="athlete-card">
+            <img src="/images/About1.png" alt="Athlete 1">
+            <h3>Ethan Lopez</h3>
+        </div>
+
+        <div class="athlete-card">
+            <img src="/images/About2.jpg" alt="Athlete 2">
+            <h3>Jordan Miller</h3>
+        </div>
+
+        <div class="athlete-card">
+            <img src="/images/About3.jpg" alt="Athlete 3">
+            <h3>Maya Carter</h3>
+        </div>
+
+        <div class="athlete-card">
+            <img src="/images/About4.png" alt="Athlete 4">
+            <h3>Ryan Hayes</h3>
+        </div>
+    </div>
+</section>
+
+<!-- Athlete Stats Table -->
+<section class="athlete-stats">
+    <h2 style="color: black;"><u>Athlete Statistics</u></h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Sport</th>
+            <th>Achievements</th>
+            <th>Years of Experience</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Ethan Lopez</td>
+            <td>Volleyball</td>
+            <td>National Champion</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>Jordan "Ace" Miller</td>
+            <td>Basketball</td>
+            <td>Gold Medalist</td>
+            <td>7</td>
+        </tr>
+        <tr>
+            <td>Maya "Spike" Carter</td>
+            <td>Soccer</td>
+            <td>International Player</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>Ryan Hayes</td>
+            <td>Tennis</td>
+            <td>Ranked in Top 10</td>
+            <td>6</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Coach Profile. All rights reserved.</p>
+</footer>
+
+<script>
+    // Image Slider Logic
+    let images = document.querySelectorAll('.image-slider img');
+    let index = 0;
+
+    function flipImages() {
+        images.forEach(img => img.classList.remove('active'));
+        images[index].classList.add('active');
+        index = (index + 1) % images.length;
+    }
+
+    setInterval(flipImages, 3000);
+</script>
+
+</body>
+</html>

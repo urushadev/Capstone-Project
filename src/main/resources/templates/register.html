@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Coach Profile</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <script th:src="@{/js/script.js}" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<!-- Header -->
+<header>
+    <nav>
+        <ul class="menu">
+            <li><a href="#" th:href="@{/home}">Home</a></li>
+            <li><a href="#" th:href="@{/about}">About</a></li>
+            <li><a href="#" th:href="@{/contact}">Contact</a></li>
+            <li><a href="#" th:href="@{/sign-in}">Sign In</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Register Section -->
+<section class="sign-in">
+    <div class="info">
+        <h1>Create Your Account</h1>
+        <form th:action="@{/register}" method="post" th:object="${user}" id="registerForm">
+            <label for="newUsername">Username:</label>
+            <input type="text" id="newUsername" th:field="*{username}" required>
+
+            <label for="newPassword">Password:</label>
+            <input type="password" id="newPassword" th:field="*{password}" required>
+
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="#" th:href="@{/sign-in}">Sign In</a></p>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Coach Profile. All rights reserved.</p>
+</footer>
+
+<script>
+    document.getElementById("registerForm").addEventListener("submit", function (event) {
+        let username = document.getElementById("newUsername").value;
+        let password = document.getElementById("newPassword").value;
+
+        if (username === "" || password === "") {
+            alert("Both fields are required!");
+            event.preventDefault(); // ✅ Prevent submission only if validation fails
+        }
+    });
+</script>
+</body>
+
+</html>

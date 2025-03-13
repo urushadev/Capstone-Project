@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Coach Profile</title>
+    <link rel="stylesheet" href="/css/styles.css">
+<!--    <script src="@{/js/script.js}" defer></script>-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<!-- Header -->
+<header>
+    <nav>
+        <ul class="menu">
+            <li><a th:href="@{/home}">Home</a></li>
+            <li><a th:href="@{/about}">About</a></li>
+            <li><a th:href="@{/contact}">Contact</a></li>
+            <li><a th:href="@{/sign-in}">Sign In</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Sign-In Section -->
+<section class="sign-in">
+    <div class="info">
+        <h1>Sign In to Access Your Training</h1>
+        <form th:action="@{/login}" method="post" id="signInForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Sign In</button>
+        </form>
+        <p>Don't have an account? <a th:href="@{/register}">Register</a></p>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Coach Profile. All rights reserved.</p>
+</footer>
+
+<!--<script>-->
+<!--    // Simple Sign In form validation-->
+<!--    document.getElementById("signInForm").addEventListener("submit", function (event) {-->
+<!--        event.preventDefault(); // Prevent the form from submitting to a server-->
+
+<!--        let username = document.getElementById("username").value;-->
+<!--        let password = document.getElementById("password").value;-->
+
+<!--        // Check if both fields are filled (Basic Validation)-->
+<!--        if (username === "" || password === "") {-->
+<!--            alert("Both fields are required!");-->
+<!--        } else {-->
+<!--            alert("Sign In Successful!");-->
+<!--            // In a real-world scenario, you would send the data to the backend server-->
+<!--            // window.location.href = "/dashboard";-->
+<!--            // Redirect to home page after successful sign-in-->
+<!--        }-->
+<!--    });-->
+<!--</script>-->
+</body>
+
+</html>
